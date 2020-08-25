@@ -1,0 +1,84 @@
+// MIXIN
+@mixin nombre($parametro o no) {
+    background-color: red;
+}
+@include nombre($parametro);
+
+@mixin textStyles($transform: uppercase) {
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: $transform;
+}
+@include textStyles(capitalize);
+
+// EXTEND
+%fx-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@extend %fx-center;
+
+
+%nombre 
+
+// LOOP
+
+/* Map */
+$colors: (
+    1: red,
+    2: green,
+    3: blue,
+    4: orange
+);
+
+// desde hasta inclusive
+@for $i from 1 through 4 {
+    .clase-#{$i} {
+        background-color: mag-get($colors, $i);
+    }
+}
+
+// desde hasta exclusive
+@for $i from 1 to 5 {
+    .clase-#{$i} {
+        background-color: mag-get($colors, $i);
+    }
+}
+
+
+// EACH LOOP
+$colors: red green blue orange; //(puede estar separado en comas)
+
+@each $color in $colors {
+    .clase-#{$color} {
+        background-color: $color;
+    }
+}
+
+// IF
+h1 {
+    @if(2 > 4 ) {
+        color: red;
+    }
+}
+
+@mixin headingSize($size) 
+{
+    @if($size == large) {
+
+        font-size: 45px;
+
+    } @else if($size == medium) {
+
+        font-size: 30px;
+
+    } @else {
+
+        font-size: 15px;
+    
+    }
+}
+h1 {
+    @mixin headingSize(medium);
+}
