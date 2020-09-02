@@ -11,6 +11,24 @@
 }
 @include textStyles(capitalize);
 
+
+// Query responsive
+@mixin response($breakpoint) {
+    @if ($breakpoint == xl) {
+        @media(max-width: 1200px) {
+            @content;
+        }
+    }
+
+    @if ($breakpoint == lg) {
+        @media(max-width: 1000px) {
+            @content;
+        }
+    }
+}
+
+
+
 // EXTEND
 %fx-center {
     display: flex;
