@@ -1,0 +1,79 @@
+@import "test";
+
+$clr-primary: orange;
+$clr-secondary: gray;
+$clr-tertiary: royalblue;
+
+$font-lg: 2.5rem;
+$font-md: 1.875rem;
+$font-sm: 1.25rem;
+
+.nav {
+    background-color: lighten($clr-primary, 10%);
+    // lighten();
+    // darkten();
+    // transparentize();
+    // mix();
+
+    ul li {
+        list-style: none;
+
+    }
+    
+    a {
+        color: $clr-secondary;
+        font-size: $font-sm;
+        text-decoration: none;
+
+        &:hover {
+            color: $clr-tertiary;
+        }
+    }
+}
+
+// MIXINS
+// @mixin headingStyles($fontSize) {
+//     font-size: $fontSize;
+//     color: $clr-secondary;
+//     text-align: center;
+// }
+
+@mixin transitions($param...) { //los 3 puntos es cuando su contenido tiene más de un parámetro
+    transition: $param;
+}
+
+// .banner h1 {
+//     @include headingStyles($font-lg);
+// }
+
+// .footer h3 {
+//     @include headingStyles($font-md);
+// }
+
+
+
+// EXTEND
+%heading { // Con el % transformamos la clase en un place holder y así ésta no aparece sino solo donde se aplica
+    background-color: $clr-secondary;
+    color: $clr-primary;
+    font-size: $font-lg;
+    text-align: center;
+}
+
+.banner h1 {
+    @extend %heading;
+}
+
+.footer h3 {
+    @extend %heading;
+}
+
+
+// FUNCTIONS
+// @function fontSize($size) {
+//     @return $size * 2;
+// }
+
+// .banner p {
+//     font-size: fontSize($font-sm);
+// }

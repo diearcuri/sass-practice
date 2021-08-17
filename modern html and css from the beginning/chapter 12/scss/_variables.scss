@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Staatliches&display=swap');
+
+// Gral colors
+$primary-clr: #c72727;
+$secondary-clr: #f99500;
+$light-clr:#f3f3f3;
+$dark-clr: #333;
+$light-grey-clr: #444;
+
+// Categories
+$sports-clr: $secondary-clr;
+$ent-clr: #a66bbe;
+$tech-clr: #009cff;
+
+// Container
+$width-s: 1200px;
+
+
+// Fonts family
+$f-txt: 'Lato', sans-serif;
+$f-title: 'Staatliches', cursive;
+
+
+// Flex
+%fx { display: flex; }
+
+%fx-ali-c { align-items: center; }
+
+%fx-jus-c { justify-content: center; }
+%fx-spa-b { justify-content: space-between; }
+
+%fx-col { flex-direction: column; }
+
+%fx-col-r { flex-direction: column-reverse; }
+
+%fx-row-r { flex-direction: row-reverse; }
+
+%fx-wrap { flex-wrap: wrap; }

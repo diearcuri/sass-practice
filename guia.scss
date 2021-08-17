@@ -7,10 +7,19 @@
 @mixin textStyles($transform: uppercase) {
     font-weight: 300;
     letter-spacing: 2px;
+    
     text-transform: $transform;
 }
 @include textStyles(capitalize);
 
+
+// HERITANCE
+.clase-inherit {
+    ....
+}
+.selector {
+    @extend .clase-inherit
+}
 
 // Query responsive
 @mixin response($breakpoint) {
@@ -49,6 +58,8 @@ $colors: (
     3: blue,
     4: orange
 );
+// map-get($colors, 1);
+
 
 // desde hasta inclusive
 @for $i from 1 through 4 {

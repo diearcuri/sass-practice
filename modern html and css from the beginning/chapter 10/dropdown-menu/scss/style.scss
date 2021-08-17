@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+// Variables
+$primary-clr: coral;
+$secondary-clr: #333;
+$tertiary-clr: #e7e7e7;
+
+
+.main-nav {
+
+    &__item, &__link {
+        color: $secondary-clr;
+    }
+
+    &__item {
+        display: inline-block;
+        padding: 1rem;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $primary-clr;
+            color: #fff;
+
+            .main-nav__link {
+                color: #fff;
+            }
+
+            .main-nav__sublink {
+                color: $secondary-clr;
+            }
+
+            .main-nav__subitem {
+
+                &:hover{
+                    background-color: #e0e0e0;
+                    color: inherit;
+
+                    span {
+                        background-color: chocolate;
+                    }
+                }
+            }
+
+            // Nested dropdown show
+            .main-nav__sublist {
+                display: block;
+                position: absolute;
+                left: 0;
+                width: 200px;
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    // Hide nested ul by default
+    &__sublist {
+        display: none;
+        background-color: $tertiary-clr;
+    }
+
+    &__subitem {
+        width: 100%;
+    }
+
+    &__sublink {
+
+        span {
+            float: right;
+            color: #fff;
+            background-color: $primary-clr;
+            text-align: center;
+            border-radius: 5px;
+            padding: .2rem .5rem;
+            font-size: .8rem;
+        }
+    }
+}
+
+.showcase {
+    text-align: center;
+    background-color: $primary-clr;
+    padding: 0 2rem;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &__title {
+        color: #fff;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-nav {
+
+        &__item {
+            display: block;
+
+            &:hover {
+
+                .main-nav__sublist {
+                    position: relative;
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+}

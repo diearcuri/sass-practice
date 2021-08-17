@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+:root {
+  --page-1-color: steelblue;
+  --page-2-color: tan;
+  --page-3-color: teal;
+  --page-4-color: slateblue;
+  --animate-speed: 1.5s;
+}
+
+.container-m {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.page {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.page1 {
+  background-color: var(--page-1-color);
+}
+
+.page2 {
+  background-color: var(--page-2-color);
+}
+
+.page3 {
+  background-color: var(--page-3-color);
+}
+
+.page4 {
+  background-color: var(--page-4-color);
+}
+
+.page-box__title {
+  text-transform: uppercase;
+  margin-bottom: 1.3rem;
+  font-size: 4rem;
+}
+
+.page-box__txt {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #f4f4f4;
+  color: #333;
+  text-decoration: none;
+  border: none;
+  font-size: 1.1rem;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+.btn:hover, .btn--dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn--dark {
+  margin-right: .5rem;
+}
+
+.btn--dark:hover {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.page1 .page-box__title {
+  -webkit-transform: translateY(-100vh);
+          transform: translateY(-100vh);
+  -webkit-animation: heading var(--animate-speed) forwards ease-in;
+          animation: heading var(--animate-speed) forwards ease-in;
+}
+
+.page1 .page-box__txt {
+  -webkit-transform: translateX(-100vw);
+          transform: translateX(-100vw);
+  -webkit-animation: text var(--animate-speed) forwards ease-in 2s;
+          animation: text var(--animate-speed) forwards ease-in 2s;
+}
+
+@-webkit-keyframes heading {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes heading {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes text {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes text {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+/*# sourceMappingURL=style.css.map */
