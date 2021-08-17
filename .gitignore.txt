@@ -1,1 +1,1 @@
-the_complete_sass_course_oreilly/
+git rm --cached 'the_complete_sass_course_oreilly/'
