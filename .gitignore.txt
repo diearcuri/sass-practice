@@ -1,1 +1,0 @@
-git rm --cached 'the_complete_sass_course_oreilly/'
