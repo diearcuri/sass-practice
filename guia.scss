@@ -111,3 +111,14 @@ h1 {
 h1 {
     @mixin headingSize(medium);
 }
+
+
+// FUNCTION
+@function set-txt-clr($bgColor) {
+    @if(lightness($bgColor) > 50) {
+        @return #333;
+    } @else {
+        @return #fff;
+    }
+}
+
