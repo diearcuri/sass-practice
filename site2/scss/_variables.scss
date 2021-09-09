@@ -1,0 +1,68 @@
+$main-clr: #ffbc00;
+$light-clr: #f4f4f4;
+$medium-clr: #ccc;
+$dark-clr: #333;
+$title-size: 2rem;
+
+%fx {
+    display: flex;
+}
+
+%fxin {
+    display: inline-flex;
+}
+
+%fx-ali-c {
+    align-items: center;
+}
+
+%fx-jus-c {
+    justify-content: center;
+}
+
+%fx-spa-b {
+    justify-content: space-between;
+}
+
+%fx-spa-a {
+    justify-content: space-around;
+}
+
+%fx-col {
+    flex-direction: column;
+}
+
+%fx-col-r {
+    flex-direction: column;
+}
+
+%fx-wrap {
+    flex-wrap: wrap;
+}
+
+%ali-c {
+    text-align: center;
+}
+
+
+@mixin query ($breakpoint) {
+    @if($breakpoint == xs) {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+    @if($breakpoint == sm) {
+        @media (max-width: 979px) {
+            @content;
+        }
+    }
+}
+
+// Set Text Color Función para devolver color claro u oscuro dependiendo qué se pase
+// @function set-txt-clr($color) {
+//     @if (lightness($color) > 50) {
+//         @return #000;
+//     } @else {
+//         @return #fff;
+//     }
+// }

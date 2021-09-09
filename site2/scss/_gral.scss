@@ -1,0 +1,592 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap');
+
+body {
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+h2, h3, h4, h5 {
+    text-transform: uppercase;
+}
+
+a {
+    color: $dark-clr;
+}
+
+img {
+    width: 100%;
+}
+
+// Utilities
+.container-m {
+    max-width: 1200px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[class^="u-title"] {
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+
+.u-title {
+
+    &1 {
+        font-size: $title-size * 1.5;
+    }
+    &2 {
+        font-size: $title-size;    
+    }
+    &3 {
+        font-size: $title-size / 1.3;
+    }
+    &4 {
+        font-size: $title-size / 1.8;
+    }
+}
+
+.u-title-line {
+    position: relative;
+    @extend %fxin, %fx-jus-c;
+
+    &:after {
+        content: '';
+        width: 50px;
+        height: 2px;
+        background-color: $main-clr;
+        position: absolute;
+        bottom: -.5rem;
+        display: inline-block;
+    }
+}
+
+.u-sub-txt {
+    font-style: italic;
+    font-size: .9rem;
+}
+
+.u-brd-left {
+    border-left: 3px solid $main-clr;
+
+    @include query (xs) {
+        border-left: 1px solid $main-clr;
+    }
+}
+
+.btn {
+    background-color: #fff;
+    color: $dark-clr;
+    padding: .55rem 1.5rem;
+    margin-top: 1.5rem;
+    display: inline-block;
+    border: none;
+    transition: background-color .3s;
+
+    &:hover {
+        background-color: $main-clr;
+    }
+}
+
+// HEADER
+.main-header {
+    position: static;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    &__wrapper {
+        @extend %fx, %fx-spa-b, %fx-ali-c;
+
+        @include query (xs) {
+            flex-direction: column;
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    &.bg-img {
+        background: url('../img/showcase.jpg') no-repeat, center/cover;
+        background-position: center -340px;
+    }
+
+    * {
+        color: #fff;
+    }
+}
+.home .main-header {
+    position: absolute;
+}
+
+.header-logo {
+
+    &__img {
+        max-width: 70px;
+    }
+}
+
+.nav {
+
+    &__list {
+        @extend %fx;
+    }
+
+    &__item {
+        // padding: 1rem;
+    }
+
+    &__link {
+        padding: 1rem;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 0;
+            position: absolute;
+            background: $light-clr;
+            height: 3px;
+            bottom: .2rem;
+            left: 1rem;
+            right: 1rem;
+            transition: width .3s;
+        }
+
+        &.current:after, &:hover:after {
+            width: calc(100% - 2rem);
+        }
+
+        &.current:after {
+            background: $main-clr;
+        }
+    }
+}
+
+.showcase {
+    background: url('../img/showcase.jpg') no-repeat, center center/cover;
+    height: 100vh;
+    width: 100%;
+    @extend %fx, %fx-ali-c, %fx-jus-c;
+    
+    @include query (xs) {
+        height: 350px;
+        align-items: flex-end;
+        padding-bottom: 2rem;
+    }
+
+    &__box {
+        color: #fff;
+        text-align: center;
+    }
+}
+
+
+.specialize {
+    @extend %ali-c;
+    padding: 2rem 0;
+}
+
+.awards {
+    @extend %ali-c;
+    margin-bottom: 2rem
+}
+
+
+.about-me {
+    @extend %ali-c;
+    margin-top: 2rem;
+}
+
+.beside-boxes {
+    margin-top: 2rem;
+    @extend %fx, %fx-jus-c;
+
+    @include query (xs) {
+        flex-direction: column;
+    }
+
+    &__box {
+        padding: 10px;
+        counter-increment: index;
+    }
+
+    &__title {
+        margin-bottom: 0;
+    }
+
+    &__ikon {
+        font-size: 1.5rem;
+        color: $main-clr;
+
+        &--big {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        &--circle {
+            background-color: $dark-clr;
+            padding: 1.8rem;
+            font-size: 4rem;
+            color: #fff;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 2rem;
+            transition: .3s;
+            position: relative;
+
+            &:after {
+                content: counter(index);
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: darken($main-clr, 5%);
+                border-radius: 50%;
+                width: 55px;
+                height: 55px;
+                font-size: .55em;
+                line-height: initial;
+                padding-top: .25em;
+                transition: .7s;
+            }
+
+            &:before {
+                @extend %fx, %fx-jus-c;
+                padding-top: .9rem;
+            }
+
+            &:hover {
+                background-color: darken($main-clr, 10%);
+                transform: scale(1.1);
+
+                &:after {
+                    background-color: $dark-clr;
+                }
+            }
+        }
+
+        &--wht {
+            color: #fff;
+        }
+    }
+
+    &--contact {
+        @extend %fx-spa-a;
+    }
+    
+}
+
+.advs {
+    text-align: center;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        @include query (xs) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 1px;
+        }
+    }
+
+    &__item {
+        background-color: $light-clr;
+        padding: 2rem 1rem;
+
+        &:nth-child(even) {
+            background-color: $medium-clr;
+        }
+    }
+
+    &__ikon {
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+    }
+
+    &__num {
+        font-size: 1.2rem;
+        margin-top: .6rem;
+        display: block;
+    }
+}
+
+.dual-box {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 1rem;
+    margin-top: 2rem;
+
+    @include query (xs) {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+
+    &__txt-wrapper {
+        background-color: $light-clr;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+.skills {
+    background-color: $dark-clr;
+    color: #fff;
+    padding: 2rem 0;
+    @extend %ali-c;
+
+    &__item {
+        text-align: left;
+
+        &+.skills__item {
+            margin-top: 5px;
+        }
+    }
+
+    &__bar {
+        display: block;
+        width: 100%;
+        background-color: $medium-clr;
+        height: 1rem;
+        position: relative;
+        text-indent: -9999999rem;
+        border-radius: 5px;
+        overflow: hidden;
+
+        &:before {
+            content:'';
+            background-color: $main-clr;
+            position: absolute;
+            left: 0;
+            height: 100%;
+        }
+
+        &[data-quantity="100"]:before {
+            width: 100%;
+        }
+        &[data-quantity="80"]:before {
+            width: 80%;
+        }
+        &[data-quantity="70"]:before {
+            width: 70%;
+        }
+    }
+}
+
+.company-logos {
+    background-color: $light-clr;
+    padding: 2rem 0;
+
+    &__list {
+        @extend %fx, %fx-ali-c, %fx-spa-b;
+        padding: 1rem;
+
+        @include query (xs) {
+            flex-direction: column;
+        }
+    }
+
+    &__item + &__item {
+        @include query (xs) {
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+.testimonials {
+    @extend %ali-c;
+    padding: 2rem 0;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: .5rem;
+        text-align: left;
+        padding: 2rem 0;
+
+        @include query (xs) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__box + &__box {
+        @include query (xs) {
+            margin-top: 1.5rem;
+        }
+    }
+
+    &__txt {
+        padding: .5rem;
+        border: 1px solid $dark-clr;
+        border-radius: 5px;
+    }
+}
+
+.user-box {
+    @extend %fx, %fx-ali-c;
+    margin-top: 1rem;
+
+    &__img {
+        border-radius: 50%;
+        max-width: 50px;
+        margin-right: 5px;
+    }
+}
+
+.my-work {
+    @extend %ali-c;
+    padding: 2rem 0;
+}
+
+.work-window {
+    padding: 2rem 0;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+
+        @include query (xs) {
+            grid-template-columns: 1fr;
+            grid-row-gap: 10px;
+        }
+    }
+
+    &__box {
+        position: relative;
+        overflow: hidden;
+        @extend %fx, %fx-ali-c, %fx-jus-c;
+
+        &:before {
+            content: '';
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 200%;
+            background-color: darken($main-clr, 10%);
+            position: absolute;
+            opacity: .9;
+            transform: rotate(-25deg) translate(0%, -120%);
+            transition: transform .8s;
+            display: block;
+        }
+
+        &:hover {
+
+            &:before {
+                transform: rotate(-25deg) translate(0%, -30%);
+            }
+
+            .work-window__txt {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__txt {
+        position: absolute;
+        color: #fff;
+        opacity: 0;
+        transform: translateY(-2rem);
+        transition: .9s;
+        z-index: 1;
+    }
+}
+
+.contact-me {
+    @extend %ali-c;
+    padding: 2rem 0;
+}
+
+.contact-form {
+    padding-top: 2rem;
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+
+        @include query (xs) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    input, textarea {
+        padding: .5rem 1rem;
+    }
+    textarea, &__btn-wrapper {
+        grid-column: 1 / -1;
+    }
+
+    textarea {
+        min-height: 6rem;
+    }
+
+    &__btn {
+        width: 50%;
+        background-color: $dark-clr;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 0;
+    }
+}
+
+.contact-ways {
+    background-color: $dark-clr;
+    color: #fff;
+    padding: 2rem 0;
+    @extend %ali-c;
+}
+
+.banner-start {
+    padding: 2rem 0;
+    background-color: $main-clr;
+    @extend %ali-c;
+    color: #fff;
+
+    &__title {
+        font-size: 2.8rem;
+
+        @include query (xs) {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.footer {
+    padding: 1rem 0;
+    background-color: $dark-clr;
+
+    &__wrapper {
+        @extend %fx, %fx-spa-b, %fx-ali-c;
+        color: #fff;
+
+        @include query (xs) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &-social {
+        @include query (xs) {
+            margin-bottom: 1rem
+        }
+
+        &__list {
+            @extend %fx;
+        }
+
+        &__item {
+            padding: .8rem;
+            border: 2px solid;
+            margin: 0 .5rem;
+            border-radius: 50%;
+            line-height: 1;
+            font-size: 1.3rem;
+            transition: .3s;
+
+            &:hover {
+                background-color: $main-clr;
+            }
+        }
+    }
+}
